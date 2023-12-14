@@ -10,7 +10,7 @@ user_input_form.addEventListener("submit", (e) => {
     const photoURL = photo_url === "" ? "https://picsum.photos/200/300" : photo_url.value;
     //another way to write a ternary statement:
     // const photoURL = photo_url.value || "https://picsum.photos/200/300";
-    const desc = destination_name.value;
+    const desc = description.value;
 
     //clear form
     user_input_form.reset();
@@ -38,7 +38,7 @@ function createCard({destinationName, locationName, photoURL, desc}) {
     //div for card
     const card = document.createElement("div");
     card.classList.add("card");
-    card.setAttribute("style", "width: 18rem;");
+    card.setAttribute("style", "width: 18rem");
     //html for cardbody
     card.innerHTML = `
     <img class="card-img-top" src="${photoURL}" alt="${destinationName} at ${locationName}">
@@ -48,6 +48,7 @@ function createCard({destinationName, locationName, photoURL, desc}) {
     ${desc && `<p class="card-text">${desc}</p>`}
     <button class="btn btn-info">Edit</button>
     <button class="btn btn-danger">Delete</button>
+    </div>
     `;
 
     return card;
